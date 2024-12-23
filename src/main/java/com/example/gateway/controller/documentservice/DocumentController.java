@@ -14,43 +14,43 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/document")
+@RequestMapping("/documents")
 @RequiredArgsConstructor
 @CrossOrigin
 public class DocumentController {
     private final DocumentServiceClient documentServiceClient;
 
-    @PreAuthorize("hasAnyRole('USER')")
-    @RequestMapping
+//    @PreAuthorize("hasAnyRole('USER')")
+    @RequestMapping("/all")
     public ResponseEntity<ListDocumentResponse> getAllDocuments() {
         return documentServiceClient.getAllDocuments();
     }
 
-    @PreAuthorize("hasAnyRole('USER')")
+//    @PreAuthorize("hasAnyRole('USER')")
     @GetMapping("/get/{id}")
     public ResponseEntity<DocumentResponse> getDocumentById(@PathVariable("id") UUID id) {
         return documentServiceClient.getDocument(id);
     }
 
-    @PreAuthorize("hasAnyRole('USER')")
+//    @PreAuthorize("hasAnyRole('USER')")
     @GetMapping("/history/{id}")
     public ResponseEntity<ListDocumentVersionResponse> getDocumentHistory(@PathVariable("id") UUID id) {
         return documentServiceClient.getDocumentHistory(id);
     }
 
-    @PreAuthorize("hasAnyRole('USER')")
+//    @PreAuthorize("hasAnyRole('USER')")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<DocumentResponse> deleteDocument(@PathVariable("id") UUID id) {
         return documentServiceClient.deleteDocument(id);
     }
 
-    @PreAuthorize("hasAnyRole('USER')")
+//    @PreAuthorize("hasAnyRole('USER')")
     @PostMapping("/create")
     public ResponseEntity<DocumentResponse> createDocument(@RequestBody CreateDocumentRequest request) {
         return documentServiceClient.createDocument(request);
     }
 
-    @PreAuthorize("hasAnyRole('USER')")
+//    @PreAuthorize("hasAnyRole('USER')")
     @PutMapping("/update/{id}")
     public ResponseEntity<DocumentResponse> updateDocument(@PathVariable("id") UUID id, @RequestBody UpdateDocumentRequest request) {
         return documentServiceClient.updateDocument(id, request);

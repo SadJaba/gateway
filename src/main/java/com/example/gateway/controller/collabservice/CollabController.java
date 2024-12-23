@@ -18,19 +18,19 @@ import java.util.UUID;
 public class CollabController {
     private final CollabServiceClient collabServiceClient;
 
-    @PreAuthorize("hasAnyRole('USER')")
+//    @PreAuthorize("hasAnyRole('USER')")
     @RequestMapping("/all/{id}")
     public ResponseEntity<ListSessionResponse> getActiveSessions(@PathVariable("id") UUID documentId) {
         return collabServiceClient.getActiveSessions(documentId);
     }
 
-    @PreAuthorize("hasAnyRole('USER')")
+//    @PreAuthorize("hasAnyRole('USER')")
     @RequestMapping("/delete/{id}")
     public ResponseEntity<SessionResponse> endSession(@PathVariable("id") UUID sessionId) {
         return collabServiceClient.endSession(sessionId);
     }
 
-    @PreAuthorize("hasAnyRole('USER')")
+//    @PreAuthorize("hasAnyRole('USER')")
     @RequestMapping("/create")
     public ResponseEntity<SessionResponse> createSession(@RequestBody StartSessionRequest request) {
         return collabServiceClient.startSession(request);

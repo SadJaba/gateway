@@ -20,32 +20,32 @@ import java.util.UUID;
 public class UserController {
     private final UserServiceClient userService;
 
-    @PreAuthorize("hasRole('USER')")
+//    @PreAuthorize("hasRole('USER')")
     @RequestMapping("/get")
     public ResponseEntity<UserResponse> getUserById(@RequestHeader("Authorization") String token) {
         return userService.getUserById(token);
     }
 
-    @PreAuthorize("hasAnyRole('USER')")
+//    @PreAuthorize("hasAnyRole('USER')")
     @GetMapping("/get/{id}")
     public ResponseEntity<UserResponse> getUserById(@PathVariable("id") UUID id) {
         return userService.getUserById(id);
     }
 
-    @PreAuthorize("hasAnyRole('USER')")
+//    @PreAuthorize("hasAnyRole('USER')")
     @GetMapping("/all")
     public ResponseEntity<ListUserResponse> getAllUsers() {
         return userService.getAllUsers();
     }
 
-    @PreAuthorize("hasAnyRole('USER')")
+//    @PreAuthorize("hasAnyRole('USER')")
     @DeleteMapping
     public ResponseEntity<UserResponse> deleteUser(@RequestHeader("Authorization") String token) {
         return userService.deleteUser(token);
     }
 
 
-    @PreAuthorize("hasAnyRole('USER')")
+//    @PreAuthorize("hasAnyRole('USER')")
     @PutMapping
     public ResponseEntity<UserResponse> updateUser(
             @RequestBody UpdateUserRequest updateUserRequest,
@@ -53,7 +53,7 @@ public class UserController {
         return userService.updateUser(updateUserRequest, token);
     }
 
-    @PreAuthorize("hasAnyRole('USER')")
+//    @PreAuthorize("hasAnyRole('USER')")
     @PutMapping("/password")
     public ResponseEntity<UserResponse> updatePassword(
             @RequestBody UpdatePasswordRequest updateUserRequest,

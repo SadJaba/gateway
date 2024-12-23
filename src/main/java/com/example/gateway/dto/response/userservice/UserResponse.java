@@ -11,6 +11,7 @@ public record UserResponse(
         @JsonProperty("jwt_token") String jwtToken,
         @JsonProperty("first_name") String firstName,
         @JsonProperty("last_name") String lastName,
+        String role,
         String email
 ) {
 }
